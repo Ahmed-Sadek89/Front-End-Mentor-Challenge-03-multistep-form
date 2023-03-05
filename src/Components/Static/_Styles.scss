@@ -1,0 +1,41 @@
+.static{
+    background-image: url('../../images/bg-sidebar-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    width: 20vw;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    gap: 30px;
+    &-step{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        &-number-others, &-number-current{
+            color: white;
+            border: 1px solid white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        &-number-current{
+            background-color: $Pastel-blue;
+            color: $Marine-blue
+        }
+        &-info{
+            text-transform: uppercase;
+            span{
+                color: $Light-gray;
+                font-size: 13px;
+                line-height: 1.5;
+            }
+            h5{
+                color: $White
+            }
+        }
+    }
+}

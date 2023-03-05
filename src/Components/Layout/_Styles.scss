@@ -1,0 +1,18 @@
+.layout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+    background-color: $Magnolia;
+    &-content{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 75%;
+    }
+}

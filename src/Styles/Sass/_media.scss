@@ -1,0 +1,15 @@
+$media: (
+    "mobile": 0px,
+    "desktop": 650px,
+);
+
+@mixin mobile{
+    @media( min-width: map-get($media, "mobile") ) {
+        @content;
+    }
+}
+@mixin desktop{
+    @media( min-width: map-get($media, "desktop") ) {
+        @content;
+    }
+}
