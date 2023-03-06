@@ -1,0 +1,31 @@
+.thanks{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    &-layout{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        @include mobile{
+            padding: 80px 10px;
+        }
+        @include desktop{
+            padding: 0px 40px;
+        }
+        h2{
+            margin-top: 10px;
+            color: $Marine-blue
+        }
+        p{
+            color: $Cool-gray;
+            @include mobile{
+                width: 100%;
+            }
+            @include desktop{
+                width: 75%;
+            }
+        }
+    }
+}

@@ -1,18 +1,52 @@
 .layout{
-    display: flex;
+    height: 100vh;
+    @include mobile{
+        padding: 0px;
+        display: block;
+    }
+    @include desktop{
+        padding: 0px 100px;
+        display: flex;
+    }
     justify-content: center;
     align-items: center;
-    height: 100vh;
     gap: 20px;
     background-color: $Magnolia;
     &-content{
+        @include mobile{
+            gap: 0px;
+            padding: 0px;
+            border-radius: 0px;
+            flex-direction: column;
+        }
+        @include desktop{
+            gap: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            flex-direction: row;
+        }
         display: flex;
-        flex-direction: row;
-        gap: 20px;
-        align-items: center;
         background: white;
-        padding: 20px;
-        border-radius: 10px;
-        width: 75%;
+        position: relative;
+        &-routes{
+            padding: 20px 40px;
+            @include mobile{
+                position: absolute;
+                background: $White;
+                top: 40%;
+                left: 4%;
+                right: 4%;
+                border-radius: 10px;
+                box-shadow: 3px 4px 7px 0px $Cool-gray;
+                padding-right: 40px;
+            }
+            @include desktop{
+                position: static;
+                background: $White;
+                border-radius: 0%;
+                box-shadow: none;
+                padding-right: 0px;
+            }
+        }
     }
 }

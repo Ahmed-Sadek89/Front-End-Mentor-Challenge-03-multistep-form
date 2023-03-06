@@ -2,8 +2,66 @@
 
 *{margin: 0px; padding: 0px; box-sizing: border-box;}
 
-body{
+body,#root{
     font-family: 'Ubuntu', sans-serif;
+    @include mobile{
+        background-color: $Alabaster;
+    }
+    @include desktop{
+        background-color: transparent;
+    }
+}
+
+.page-grid{
+    height: 100%;
+    @include mobile{
+        display: block;
+        gap: 30px;
+    }
+    @include desktop{
+        display: grid;
+        gap: 0px;
+        grid-template-rows: 25% 1fr 10%;
+    }
+}
+.btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: $transition;
+}
+.btn-next{
+    @extend .btn;
+    background-color: $Marine-blue;
+    color: $White;
+    &:hover{
+        background-color: $Purplish-blue;
+    }
+}
+.btn-prev{
+    @extend .btn;
+    background-color: transparent;
+    color: $Cool-gray;
+    font-weight: bold;
+    &:hover{
+        color: $Marine-blue;
+    }
+}
+
+.btn-position{
+    @include mobile{
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        padding: 20px;
+        background-color: $White;
+    }
+    @include desktop{
+        position: relative;
+        background-color: transparent;
+        width: auto;
+        padding: 0px;
+    }
 }
 
 ul{list-style: none;}

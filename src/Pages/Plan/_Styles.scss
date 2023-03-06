@@ -1,0 +1,114 @@
+.plan{
+    @extend .page-grid;
+    &-layout{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-evenly;
+        .plan-selected{
+            background-color: $Light-gray;
+            border: 1px solid $Purplish-blue;
+        }
+        &-type{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 10px;
+            align-items: self-start;
+            @include mobile{
+                flex-direction: column;
+            }
+            @include desktop{
+                flex-direction: row;
+            }
+            &-item{
+                text-transform: capitalize;
+                display: flex;
+                flex: 1;
+                align-items: flex-start;
+                border: 1px solid black;
+                border-radius: 10px;
+                padding: 20px;
+                cursor: pointer;
+                transition: $transition;
+                border: 1px solid $Light-gray;
+                @include mobile{
+                    width: 100%;
+                    gap: 10px;
+                    flex-direction: row;
+                }
+                @include desktop{
+                    width: 150px;
+                    gap: 40px;
+                    flex-direction: column;
+                }
+                &:hover{
+                    border: 1px solid $Purplish-blue;
+                }
+                img{}
+                &-info{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    h5,span:nth-child(4){
+                        font-size: 15px;
+                        color: $Marine-blue
+                    }
+                    span:nth-child(2),
+                    span:nth-child(3){
+                        color: $Cool-gray;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+        &-duration{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; 
+            background-color: $Light-gray;
+            padding: 15px 0px;
+            border-radius: 10px;
+            span{font-size: 15px;font-weight: 500;}
+            &-selected{
+                color: $Marine-blue
+            }
+            div{
+                background-color: $Marine-blue;
+                height: 20px;
+                width: 50px;
+                border-radius: 10px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                overflow: hidden;
+                cursor: pointer;
+                button{
+                    padding: 10px 30px;
+                    background: white;
+                    padding: 8px;
+                    background-color: $White;
+                    border-radius: 50%;
+                }
+            }
+
+            &-unselected{
+                color: $Cool-gray
+            }
+            .monthly{
+                justify-content: flex-start;
+            }
+            .yearly{
+                justify-content: flex-end;
+            }
+        }
+    }
+    &-submit{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        @extend .btn-position;
+    }
+}

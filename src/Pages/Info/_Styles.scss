@@ -1,0 +1,44 @@
+.info{
+    @extend .page-grid;
+    &-form{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        &-control{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            &-guides{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                font-weight: bold;
+                label{
+                    font-size: 15px;
+                    color: $Marine-blue;
+                }
+                span{
+                    text-transform: capitalize;
+                    font-size: 13px;
+                    color: $Strawberry-red;
+                }
+            }
+            input{
+                border: 1px solid $Cool-gray;
+                border-radius: 5px;
+                padding: 10px;
+                color: $Cool-gray;
+                &:focus{
+                    border: 1px solid $Purplish-blue;
+                }
+            }
+        }
+    }
+    &-submit{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        @extend .btn-position;
+    }
+}

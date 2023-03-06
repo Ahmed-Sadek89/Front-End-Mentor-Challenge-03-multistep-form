@@ -1,8 +1,16 @@
 // basics
 @import 'variables';
-@import 'base';
 @import 'media';
+@import 'base';
 
 // components
 @import '../../Components/Layout/Styles';
 @import '../../Components/Static/Styles';
+@import '../../Components/PageHAndP/Styles';
+
+// pages
+@import '../../Pages/Info/Styles';
+@import '../../Pages/Plan/Styles';
+@import '../../Pages/Add_ons/Styles';
+@import '../../Pages/Summary/Styles';
+@import '../../Pages/Thanks/Styles';

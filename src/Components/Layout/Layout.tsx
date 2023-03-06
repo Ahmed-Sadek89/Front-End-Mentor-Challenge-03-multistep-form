@@ -6,7 +6,9 @@ const Layout = () => {
     <div className='layout'>
         <div className="layout-content">
           <Static />
-          <Outlet />
+          <div className='layout-content-routes'>
+            <Outlet />
+          </div>
         </div>
     </div>
   )

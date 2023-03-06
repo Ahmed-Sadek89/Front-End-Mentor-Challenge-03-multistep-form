@@ -4,6 +4,7 @@ import Info from '../Pages/Info/Info';
 import Plan from '../Pages/Plan/Plan';
 import Add_ons from '../Pages/Add_ons/Add_ons';
 import Summary from '../Pages/Summary/Summary';
+import Thanks from '../Pages/Thanks/Thanks';
 
 // let t = false
 const routes = createBrowserRouter([
@@ -28,6 +29,10 @@ const routes = createBrowserRouter([
             {
                 path: "/summary",
                 element: <Summary />
+            },
+            {
+                path: "/summary/thanks",
+                element: <Thanks />
             }
         ]
     }

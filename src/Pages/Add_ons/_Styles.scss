@@ -1,0 +1,64 @@
+.add_ons{
+    @extend .page-grid;
+    &-types{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .add_ons-selected{
+            background: $Magnolia;
+            border-color: $Purplish-blue;
+        }
+        &-items{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid $Cool-gray;
+            padding: 20px;
+            gap: 80px;
+            border-radius: 10px;
+            &-left{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                input{
+                    text-align: center;
+                    width: 20px;
+                    height: 20px;
+                    appearance:none;
+                    border-radius: 5px;
+                    border: 1px solid $Cool-gray;
+                    &:checked{
+                        background-color: $Purplish-blue;
+                        color: $White;
+                        border: none;
+                        font-weight: bold;
+                    }
+                    &:checked:after {
+                        content: '\2713';
+                        color:$White;
+                    }
+                }
+                &-info{
+                    h5{
+                        color: $Marine-blue
+                    }
+                    p{
+                        color: $Cool-gray
+                    }
+                }
+            }
+            &-right{
+                color: $Purplish-blue;
+            }
+        }
+    }
+    &-submit{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        @extend .btn-position;
+    }
+}
