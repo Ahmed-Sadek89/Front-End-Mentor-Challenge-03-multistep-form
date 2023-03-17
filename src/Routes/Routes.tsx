@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../Components/Layout/Layout';
 import Info from '../Pages/Info/Info';
 import Plan from '../Pages/Plan/Plan';
-import Add_ons from '../Pages/Add_ons/Add_ons';
+import AddOns from '../Pages/AddOns/AddOns';
 import Summary from '../Pages/Summary/Summary';
 import Thanks from '../Pages/Thanks/Thanks';
 
@@ -24,7 +24,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/add_ons",
-                element: <Add_ons />
+                element: <AddOns />
             },
             {
                 path: "/summary",

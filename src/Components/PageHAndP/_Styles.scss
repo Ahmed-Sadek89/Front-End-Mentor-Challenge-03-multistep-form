@@ -5,5 +5,11 @@
     p{
         color: $Cool-gray;
         padding: 20px 0px;
+        @include mobile{
+            padding-top: 10px;
+        }
+        @include desktop{
+            padding-top: 20px;
+        }
     }
 }

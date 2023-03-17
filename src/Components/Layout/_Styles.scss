@@ -3,10 +3,12 @@
     @include mobile{
         padding: 0px;
         display: block;
+        margin-bottom: 100px;
     }
     @include desktop{
         padding: 0px 100px;
         display: flex;
+        margin-bottom: 0px;
     }
     justify-content: center;
     align-items: center;

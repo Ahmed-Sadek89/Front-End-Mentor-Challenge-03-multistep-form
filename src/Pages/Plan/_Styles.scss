@@ -5,6 +5,10 @@
         flex-direction: column;
         gap: 20px;
         justify-content: space-evenly;
+        p{
+            color: $Strawberry-red;
+            font-weight: bold;
+        }
         .plan-selected{
             background-color: $Light-gray;
             border: 1px solid $Purplish-blue;

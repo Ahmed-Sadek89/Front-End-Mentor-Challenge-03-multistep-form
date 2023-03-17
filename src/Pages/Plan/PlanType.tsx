@@ -1,8 +1,10 @@
-import React from 'react'
+import {useContext} from 'react'
+import { plan } from '../../Context/Reducer/types'
+import { DataContext } from '../../Context/Context'
 
 type propTypes = {
-    plan: "" | "arcade" | "advanced" | "pro", 
-    setPlan: React.Dispatch<React.SetStateAction<"" | "arcade" | "advanced" | "pro">>,
+    plan: plan, 
+    setPlan: (val1: string, val2: string) => void,
     planImg: string, 
     planTitle: "" | "arcade" | "advanced" | "pro",
     check: "monthly" | "yearly",
@@ -12,10 +14,11 @@ type propTypes = {
 const PlanType = ({
     plan, setPlan, planImg, planTitle, check,  planeMonthlyPrice, PlanYearlyPrice
 }: propTypes) => {
+    const { state } = useContext(DataContext)
   return (
     <div 
-        className={`plan-layout-type-item ${plan === planTitle && 'plan-selected'}`} 
-        onClick={() => setPlan(planTitle)}
+        className={`plan-layout-type-item ${plan.planName === planTitle && 'plan-selected'}`} 
+        onClick={() => setPlan(planTitle, state.billing === 'monthly' ? planeMonthlyPrice : PlanYearlyPrice)}
     >
         <img src={planImg} alt={planTitle} />
         <div className='plan-layout-type-item-info'>

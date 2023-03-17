@@ -1,25 +1,47 @@
-import { useState } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PageHAndP from '../../Components/PageHAndP/PageHAndP'
 import Arcade from '../../images/icon-arcade.svg'
 import Advanced from '../../images/icon-advanced.svg'
 import Pro from '../../images/icon-pro.svg'
 import PlanType from './PlanType'
+import { DataContext } from '../../Context/Context'
+import { Types } from '../../Context/Reducer/types'
 
 const Plan = () => {
   const navigate = useNavigate()
-  const [ check, setCheck ] = useState<'monthly' | 'yearly'>('monthly');
-  const [ plan, setPlan ] = useState<'arcade' | 'advanced' | 'pro' | ''>('');
+
+  const {state, dispatch} = useContext(DataContext)
+
+  useEffect(() => {
+    if (state.username === '' || state.email === '' || state.phone === ''){
+      navigate('/')
+    }
+  }, [dispatch, navigate, state])
+
   const handleCheck = () => {
-    check === 'monthly' ? setCheck('yearly') : setCheck('monthly')
+    state.billing === 'monthly' ? 
+    dispatch({type: Types.BILLING, payload: 'yearly'}) : 
+    dispatch({type: Types.BILLING, payload: 'monthly'})
+
+    // reset the plan while changing the billing type
+    dispatch({type: Types.PLAN, payload: {planName: "", planPrice: ""}})
   }
+
   const handlePrev = () => {
     navigate('/')
   }
+
+  const [ hasPlan, setHasPlan ] = useState(true)
+
   const handleNext = () => {
-    navigate('/add_ons')
+    if( state.plan.planName === '' ) {
+      setHasPlan(false)
+    } else {
+      setHasPlan(true)
+      navigate('/add_ons')
+    }
   }
-  
   return (
   <div className='plan'>
     <PageHAndP
@@ -29,32 +51,51 @@ const Plan = () => {
     <div className='plan-layout'>
       <div className='plan-layout-type'>
         <PlanType
-          plan={plan} setPlan={setPlan}
-          planImg={Arcade} planTitle='arcade'
-          check={check}
+          plan={state.plan} 
+          setPlan={(planName: string, planPrice: string) => dispatch({
+            type: Types.PLAN, 
+            payload: { planName, planPrice }
+          })}
+          planImg={Arcade} 
+          planTitle='arcade'
+          check={state.billing}
           planeMonthlyPrice='9' PlanYearlyPrice='90'
         />
         <PlanType
-          plan={plan} setPlan={setPlan}
+          plan={state.plan} 
+          setPlan={(planName: string, planPrice: string) => dispatch({
+            type: Types.PLAN, 
+            payload: { planName, planPrice }
+          })}
           planImg={Advanced} planTitle='advanced'
-          check={check}
+          check={state.billing}
           planeMonthlyPrice='12' PlanYearlyPrice='120'
         />
         <PlanType
-          plan={plan} setPlan={setPlan}
+          plan={state.plan} 
+          setPlan={(planName: string, planPrice: string) => dispatch({
+            type: Types.PLAN, 
+            payload: { planName, planPrice }
+          })}
           planImg={Pro} planTitle='pro'
-          check={check}
+          check={state.billing}
           planeMonthlyPrice='12'PlanYearlyPrice='120'
         />
       </div>
+      {
+        hasPlan === false && <p>Please select your plan</p>
+      }
       <div className='plan-layout-duration'>
         <span 
-        className={check === 'monthly' ? 'plan-layout-duration-selected' : 'plan-layout-duration-unselected'}
+          className={state.billing === 'monthly' ? 
+            'plan-layout-duration-selected' : 
+            'plan-layout-duration-unselected'
+          }
         >Monthly</span>
-        <div onClick={handleCheck} className={check}>
+        <div onClick={handleCheck} className={state.billing}>
           <button></button>
         </div>
-        <span className={check === 'yearly' ? 'plan-layout-duration-selected' : 'plan-layout-duration-unselected'}
+        <span className={state.billing === 'yearly' ? 'plan-layout-duration-selected' : 'plan-layout-duration-unselected'}
         >Yearly</span>
       </div>
     </div>

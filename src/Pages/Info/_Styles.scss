@@ -28,10 +28,14 @@
                 border: 1px solid $Cool-gray;
                 border-radius: 5px;
                 padding: 10px;
-                color: $Cool-gray;
+                color: $Marine-blue;
+                font-weight: bold;
                 &:focus{
                     border: 1px solid $Purplish-blue;
                 }
+            }
+            .errorInput{
+                border: 1px solid $Strawberry-red;
             }
         }
     }
